@@ -5,7 +5,6 @@ import {Route, Switch, Router} from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
 
 // Import all UI Component
-import Header from "../imports/ui/Header";
 import Signup from "../imports/ui/Signup";
 import Link from "../imports/ui/Link";
 import Login from "../imports/ui/Login";
@@ -16,7 +15,6 @@ const browserHistory = createHistory();
 const routes = (
     <Router history={browserHistory}>
         <div>
-            <Header/>
             <Switch>
                 <Route exact path="/" component={Login}/>
                 <Route path="/signup" component={Signup}/>

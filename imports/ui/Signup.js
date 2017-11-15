@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 
-export default class Signup extends Component {
+class Signup extends Component {
     render(){
         return(
-            <div>Sign in Component</div>
+            <div className="container">
+                <h1>Sign Up</h1>
+                <p>Sign Up here</p>
+                <Link to="/">Have already Account?</Link>
+            </div>
         )
     }
 }
+
+export default withRouter(Signup);
