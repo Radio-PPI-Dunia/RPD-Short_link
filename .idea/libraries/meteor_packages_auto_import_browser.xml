@@ -101,6 +101,8 @@
         <item url="file://$USER_HOME$/.meteor/packages/underscore/1.0.10/web.browser/pre.js" />
         <item url="file://$USER_HOME$/.meteor/packages/underscore/1.0.10/web.browser/post.js" />
         <item url="file://$USER_HOME$/.meteor/packages/reactive-var/1.0.11/web.browser/reactive-var.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/js/bootstrap.js" />
+        <item url="file://$USER_HOME$/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/css/bootstrap.css" />
         <item url="file://$USER_HOME$/.meteor/packages/url/1.1.0/web.browser/url_common.js" />
         <item url="file://$USER_HOME$/.meteor/packages/url/1.1.0/web.browser/url_client.js" />
         <item url="file://$USER_HOME$/.meteor/packages/webapp-hashing/1.0.9/web.browser/webapp-hashing.js" />
@@ -255,6 +257,8 @@
       <root url="file://$USER_HOME$/.meteor/packages/underscore/1.0.10/web.browser/pre.js" />
       <root url="file://$USER_HOME$/.meteor/packages/underscore/1.0.10/web.browser/post.js" />
       <root url="file://$USER_HOME$/.meteor/packages/reactive-var/1.0.11/web.browser/reactive-var.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/js/bootstrap.js" />
+      <root url="file://$USER_HOME$/.meteor/packages/twbs_bootstrap/3.3.6/web.browser/dist/css/bootstrap.css" />
       <root url="file://$USER_HOME$/.meteor/packages/url/1.1.0/web.browser/url_common.js" />
       <root url="file://$USER_HOME$/.meteor/packages/url/1.1.0/web.browser/url_client.js" />
       <root url="file://$USER_HOME$/.meteor/packages/webapp-hashing/1.0.9/web.browser/webapp-hashing.js" />
