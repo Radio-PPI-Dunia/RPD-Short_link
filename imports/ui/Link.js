@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import { Accounts } from 'meteor/accounts-base';
+// import { Accounts } from 'meteor/accounts-base';
+import { Meteor } from 'meteor/meteor';
 
 export default class Link extends Component {
+    constructor(props){
+        super(props);
+    }
+
     onLogout(e){
         e.preventDefault();
-        Accounts.logout();
-        this.props.history.push('/');
+
+        Meteor.logout((err) => {
+            console.log("Logout Callback", err)
+        });
     }
 
     render(){

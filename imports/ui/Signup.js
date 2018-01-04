@@ -52,7 +52,7 @@ class Signup extends Component {
                     <button className="btn btn-primary">Create Account</button>
                 </form>
                 <hr/>
-                <Link to="/">Have already Account?</Link>
+                Already have an account? <Link to="/">Login Now</Link>
             </div>
         )
     }
