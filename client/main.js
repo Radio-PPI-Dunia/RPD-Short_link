@@ -1,7 +1,8 @@
 import {Meteor} from "meteor/meteor";
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import {Route, Switch, BrowserRouter} from "react-router-dom";
+import {Route, Switch, withRouter, Router} from "react-router-dom";
+import createHistory from 'history/createBrowserHistory';
 import {Tracker} from 'meteor/tracker';
 
 // Import all UI Component
@@ -10,8 +11,23 @@ import Link from "../imports/ui/Link";
 import Login from "../imports/ui/Login";
 import NoMatch from "../imports/ui/Notfound";
 
+const history = createHistory();
+
+const unauthenticatedPages = ['/', '/signup'];
+const authenticatedPages = ['/links'];
+let isUnauthenticatedPage = true;
+let isAuthenticatedPage = false;
+
+const ChangeTracker = withRouter(({match, location, history}) => {
+    const pathname = location.pathname;
+    isUnauthenticatedPage = unauthenticatedPages.includes(pathname);
+    isAuthenticatedPage = authenticatedPages.includes(pathname);
+
+    return false;
+});
+
 const routes = (
-    <BrowserRouter>
+    <Router history={history}>
         <div>
             <Switch>
                 <Route exact path="/" component={Login}/>
@@ -19,13 +35,22 @@ const routes = (
                 <Route path="/links" component={Link}/>
                 <Route path="*" component={NoMatch}/>
             </Switch>
+            <ChangeTracker/>
         </div>
-    </BrowserRouter>
+    </Router>
 );
 
 Tracker.autorun(() => {
     const isAuthenticated = !!Meteor.userId();
-    console.log("isAuthenticated", isAuthenticated);
+    if (isAuthenticated) {
+        if (isUnauthenticatedPage){
+            history.push('/links');
+        }
+    } else {
+        if (isUnauthenticatedPage){
+            history.push('/')
+        }
+    }
 });
 
 Meteor.startup(() => {
