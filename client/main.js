@@ -13,15 +13,15 @@ import NoMatch from "../imports/ui/Notfound";
 
 const history = createHistory();
 
-const unauthenticatedPages = ['/', '/signup'];
+const unauthenticatedPages = ['/','/signup'];
 const authenticatedPages = ['/links'];
 let isUnauthenticatedPage = true;
 let isAuthenticatedPage = false;
 
 const ChangeTracker = withRouter(({match, location, history}) => {
-    const pathname = location.pathname;
-    isUnauthenticatedPage = unauthenticatedPages.includes(pathname);
-    isAuthenticatedPage = authenticatedPages.includes(pathname);
+    const pathName = location.pathname;
+    isUnauthenticatedPage = unauthenticatedPages.includes(pathName);
+    isAuthenticatedPage = authenticatedPages.includes(pathName);
 
     return false;
 });
@@ -40,15 +40,15 @@ const routes = (
     </Router>
 );
 
-Tracker.autorun(() => {
+Tracker.autorun(()=>{
     const isAuthenticated = !!Meteor.userId();
-    if (isAuthenticated) {
+    if (isAuthenticated){
         if (isUnauthenticatedPage){
             history.push('/links');
         }
-    } else {
-        if (isUnauthenticatedPage){
-            history.push('/')
+    }else{
+        if (isAuthenticatedPage) {
+            history.push('/');
         }
     }
 });
