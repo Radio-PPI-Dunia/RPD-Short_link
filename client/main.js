@@ -2,6 +2,7 @@ import {Meteor} from "meteor/meteor";
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import {Route, Switch, BrowserRouter} from "react-router-dom";
+import {Tracker} from 'meteor/tracker';
 
 // Import all UI Component
 import Signup from "../imports/ui/Signup";
@@ -21,6 +22,11 @@ const routes = (
         </div>
     </BrowserRouter>
 );
+
+Tracker.autorun(() => {
+    const isAuthenticated = !!Meteor.userId();
+    console.log("isAuthenticated", isAuthenticated);
+});
 
 Meteor.startup(() => {
     ReactDOM.render(routes, document.querySelector('.app'))
