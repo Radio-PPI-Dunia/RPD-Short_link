@@ -24,7 +24,11 @@ class Login extends Component{
         let password = this.refs.password.value.trim();
 
         Meteor.loginWithPassword({ email }, password, (err) => {
-            console.log('Login Callback', err);
+            if ( err ) {
+                this.setState({ error: 'Unable to login, please check your email or password' })
+            } else {
+                this.setState({ error: 'Login successful' })
+            }
         });
     }
 

@@ -26,12 +26,12 @@ class Signup extends Component {
          let password = this.refs.password.value.trim();
 
          Accounts.createUser({ fullname, email, password }, (err) => {
-            console.log('Sign Up callback', err)
+            if (err) {
+                this.setState({ error: err.reason })
+            } else {
+                this.setState({ error: '' })
+            }
          });
-
-        // this.setState({
-          //  error: 'Oops! Something went error'
-        // })
     }
 
     render(){
