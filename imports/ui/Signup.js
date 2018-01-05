@@ -12,6 +12,12 @@ class Signup extends Component {
         };
     }
 
+    componentWillMount(){
+        if (Meteor.userId()){
+            this.props.history.replace('/links')
+        }
+    }
+
     onSubmit(e){
         e.preventDefault();
 

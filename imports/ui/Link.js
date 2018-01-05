@@ -7,6 +7,12 @@ export default class Link extends Component {
         super(props);
     }
 
+    componentWillMount(){
+        if (!Meteor.userId()){
+            this.props.history.replace('/');
+        }
+    }
+
     onLogout(e){
         e.preventDefault();
 

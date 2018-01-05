@@ -2,7 +2,7 @@ import {Meteor} from "meteor/meteor";
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import {Route, Switch, withRouter, Router} from "react-router-dom";
-import createHistory from "history/createBrowserHistory";
+import createBrowserHistory from "history/createBrowserHistory";
 import {Tracker} from "meteor/tracker";
 
 // Import all UI Component
@@ -11,7 +11,7 @@ import Link from "../imports/ui/Link";
 import Login from "../imports/ui/Login";
 import NoMatch from "../imports/ui/Notfound";
 
-const history = createHistory();
+const history = createBrowserHistory();
 
 const unauthenticatedPages = ['/', '/signup'];
 const authenticatedPages = ['/links'];
@@ -44,11 +44,11 @@ Tracker.autorun(() => {
     const isAuthenticated = !!Meteor.userId();
     if (isAuthenticated) {
         if (isUnauthenticatedPage) {
-            history.push('/links');
+            history.replace('/links');
         }
     } else {
         if (isAuthenticatedPage) {
-            history.push('/');
+            history.replace('/');
         }
     }
 });

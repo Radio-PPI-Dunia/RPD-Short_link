@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Link, withRouter} from "react-router-dom";
 import {Meteor} from 'meteor/meteor';
 
-class Login extends Component {
+class Login extends Component{
     constructor(props) {
         super(props);
 
@@ -11,7 +11,13 @@ class Login extends Component {
         }
     }
 
-    onLogIn(e) {
+    componentWillMount(){
+        if (Meteor.userId()){
+            this.props.history.replace('/links');
+        }
+    }
+
+    onLogIn(e){
         e.preventDefault();
 
         let email = this.refs.email.value.trim();
