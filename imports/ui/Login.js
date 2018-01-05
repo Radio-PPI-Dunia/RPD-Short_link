@@ -27,7 +27,7 @@ class Login extends Component{
             if ( err ) {
                 this.setState({ error: 'Unable to login, please check your email or password' })
             } else {
-                this.setState({ error: 'Login successful' })
+                this.setState({ error: '' })
             }
         });
     }
@@ -40,7 +40,7 @@ class Login extends Component{
                 { this.state.error ?
                     <div className="alert alert-danger" role="alert">{this.state.error}</div> : undefined}
 
-                <form>
+                <form onSubmit={this.onLogIn.bind(this)} noValidate>
                     <div className="form-group">
                         <label>Email:</label>
                         <input ref="email" type="email" name="email" className="form-control"/>
@@ -49,7 +49,7 @@ class Login extends Component{
                         <label>Password</label>
                         <input ref="password" type="password" className="form-control"/>
                     </div>
-                    <button className="btn btn-primary" onClick={this.onLogIn.bind(this)}>Login</button>
+                    <button className="btn btn-primary">Login</button>
                 </form>
                 <hr/>
                 Don't have an account? <Link to="/signup">Sign Up</Link> now!

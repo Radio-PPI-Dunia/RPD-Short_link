@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-
-import { Accounts } from 'meteor/accounts-base';
+import React, {Component} from "react";
+import {Link, withRouter} from "react-router-dom";
+import {Accounts} from "meteor/accounts-base";
 
 class Signup extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -12,36 +11,41 @@ class Signup extends Component {
         };
     }
 
-    componentWillMount(){
-        if (Meteor.userId()){
+    componentWillMount() {
+        if (Meteor.userId()) {
             this.props.history.replace('/links')
         }
     }
 
-    onSubmit(e){
+    onSubmit(e) {
         e.preventDefault();
 
-         let fullname = this.refs.fullname.value.trim();
-         let email = this.refs.email.value.trim();
-         let password = this.refs.password.value.trim();
+        let fullname = this.refs.fullname.value.trim();
+        let email = this.refs.email.value.trim();
+        let password = this.refs.password.value.trim();
 
-         Accounts.createUser({ fullname, email, password }, (err) => {
+        if (password.length < 9 ){
+            return this.setState({ error: 'Password must be more than 8 character long'})
+        }
+
+        Accounts.createUser({fullname, email, password}, (err) => {
             if (err) {
-                this.setState({ error: err.reason })
+                this.setState({error: err.reason})
             } else {
-                this.setState({ error: '' })
+                this.setState({error: ''})
             }
-         });
+        });
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div className="container">
                 <h1>Sign Up</h1>
 
-                { this.state.error ? <div className="alert alert-danger" role="alert">{this.state.error}</div> : undefined}
+                { this.state.error ?
+                    <div className="alert alert-danger" role="alert">{this.state.error}</div> : undefined}
 
-                <form onSubmit={this.onSubmit.bind(this)}>
+                <form onSubmit={this.onSubmit.bind(this)} noValidate>
                     <div className="form-group">
                         <label>Fullname:</label>
                         <input ref="fullname" type="text" name="name" placeholder="Fullname" className="form-control"/>
@@ -51,10 +55,11 @@ class Signup extends Component {
                         <input ref="email" type="email" name="email" placeholder="Email" className="form-control"/>
                     </div>
 
-                   <div className="form-group">
-                       <label>Password:</label>
-                       <input ref="password" type="password" name="password" placeholder="Password" className="form-control"/>
-                   </div>
+                    <div className="form-group">
+                        <label>Password:</label>
+                        <input ref="password" type="password" name="password" placeholder="Password"
+                               className="form-control"/>
+                    </div>
                     <button className="btn btn-primary">Create Account</button>
                 </form>
                 <hr/>
