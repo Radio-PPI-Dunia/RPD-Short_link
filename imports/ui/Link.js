@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Accounts } from 'meteor/accounts-base';
 import { Meteor } from 'meteor/meteor';
 
 export default class Link extends Component {
