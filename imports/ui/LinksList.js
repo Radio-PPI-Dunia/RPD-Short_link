@@ -12,14 +12,15 @@ export default class LinksList extends Component {
     }
 
     componentDidMount(){
-        Tracker.autorun(() => {
+        this.linksTracker = Tracker.autorun(() => {
             const links = Links.find().fetch();
             this.setState({ links });
         });
     }
 
     componentWillUnmount(){
-        console.log("componentWillUnmount LinksList")
+        console.log("componentWillUnmount LinksList");
+        this.linksTracker.stop();
     }
 
     renderLinksListItems(){
