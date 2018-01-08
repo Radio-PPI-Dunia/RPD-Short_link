@@ -21,7 +21,6 @@ export default class LinksList extends Component {
     }
 
     componentWillUnmount(){
-        console.log("componentWillUnmount LinksList");
         this.linksTracker.stop();
     }
 
