@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import {Links} from '../api/links';
+import LinksList from '../ui/LinksList';
 
 export default class Link extends Component {
-    constructor(props){
-        super(props);
-    }
 
     componentWillMount(){
         if (!Meteor.userId()){
@@ -46,6 +44,7 @@ export default class Link extends Component {
                     </div>
                     <button className="btn btn-primary">Add Link</button>
                 </form>
+                <LinksList/>
             </div>
         )
     }
