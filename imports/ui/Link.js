@@ -15,10 +15,10 @@ export default class Link extends Component {
     render(){
         return(
             <div className="container">
-                <PrivateHeader title="Your Link"/>
+                <PrivateHeader title='Your Dashboard'/>
                 <AddLink/>
                 <LinksList/>
             </div>
-        )
+         )
     }
 }
