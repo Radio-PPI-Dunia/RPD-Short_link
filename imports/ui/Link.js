@@ -20,13 +20,12 @@ export default class Link extends Component {
     }
 
     onSubmit(e){
-
         const url = this.refs.url.value.trim();
 
         e.preventDefault();
 
         if (url) {
-            Links.insert({ url });
+            Meteor.call('links.insert', url);
             this.refs.url.value = '';
         }
     }
