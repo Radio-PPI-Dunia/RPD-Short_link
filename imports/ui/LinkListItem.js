@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React, {Component} from "react";
 import Clipboard from 'clipboard';
 
@@ -36,7 +37,13 @@ export default class LinkListItem extends Component {
             <div>
                 <h3>{this.props.url}</h3>
                 <p>{this.props.shortUrl}</p>
+                <p>{this.props.visible.toString()}</p>
                 <button className="btn btn-primary" ref="copy" data-clipboard-text={this.props.shortUrl}>{this.state.justCopied ? 'Copied' : 'Copy' }</button>
+                <button className="btn btn-danger" onClick={() => {
+                    Meteor.call('links.setVisible', this.props._id, !this.props.visible)
+                }}>
+                    {this.props.visible ? 'Hide' : 'Unhide'}
+                </button>
             </div>
         )
     }

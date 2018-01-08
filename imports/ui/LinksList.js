@@ -16,7 +16,9 @@ export default class LinksList extends Component {
     componentDidMount(){
         this.linksTracker = Tracker.autorun(() => {
             Meteor.subscribe('links');
-            const links = Links.find().fetch();
+            const links = Links.find({
+                visible: true
+            }).fetch();
             this.setState({ links });
         });
     }
