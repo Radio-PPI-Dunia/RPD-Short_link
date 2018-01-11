@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import { Meteor } from 'meteor/meteor'
-import { Tracker } from 'meteor/tracker';
-import { Links } from '../api/links';
-import LinkListItem from '../ui/LinkListItem';
-import { Session } from 'meteor/session';
+import React, {Component} from "react";
+import {Meteor} from "meteor/meteor";
+import {Tracker} from "meteor/tracker";
+import {Links} from "../api/links";
+import LinkListItem from "../ui/LinkListItem";
+import {Session} from "meteor/session";
+import FlipMove from "react-flip-move";
 
 export default class LinksList extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -14,27 +15,27 @@ export default class LinksList extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.linksTracker = Tracker.autorun(() => {
             Meteor.subscribe('links');
             const links = Links.find({
                 visible: Session.get('showVisible')
             }).fetch();
-            this.setState({ links });
+            this.setState({links});
         });
     }
 
-    componentWillUnmount(){
+    componentWillUnmount() {
         this.linksTracker.stop();
     }
 
-    renderLinksListItems(){
-        if (this.state.links.length === 0){
-             return (
-                 <div>
-                     <p>No links found!</p>
-                 </div>
-             )
+    renderLinksListItems() {
+        if (this.state.links.length === 0) {
+            return (
+                <div className="item item__status-message">
+                    <p>Ooops! No links found here.</p>
+                </div>
+            )
         }
 
         // mapping links list
@@ -44,15 +45,13 @@ export default class LinksList extends Component {
         })
     }
 
-    render(){
+    render() {
         return (
             <div>
                 <h2>Link List</h2>
-                <div>
-                    <ul>
-                        {this.renderLinksListItems()}
-                    </ul>
-                </div>
+                <FlipMove maintainContainerHeight={true} typeName="ul">
+                    {this.renderLinksListItems()}
+                </FlipMove>
             </div>
         )
     }
