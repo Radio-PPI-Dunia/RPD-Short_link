@@ -39,16 +39,18 @@ export default class AddLink extends Component {
     render() {
         return (
             <div>
-                <button className="btn btn-primary" onClick={() => this.setState({isOpen: true})}>+ Add Link</button>
+                <button className="btn btn-default" onClick={() => this.setState({isOpen: true})}>+ Add Link</button>
                 <Modal
                     isOpen={this.state.isOpen}
                     contentLabel="Add Link"
                     onAfterOpen={() => this.refs.url.focus()}
                     onRequestClose={this.onHandelModalClose.bind(this)}
+                    className="boxed-view__box"
+                    overlayClassName="boxed-view boxes-view--modal"
                 >
-                    <form onSubmit={this.onSubmit.bind(this)}>
+                    <form className="boxed-view__form" onSubmit={this.onSubmit.bind(this)}>
                         <div className="form-group">
-                            <label>Add Link</label>
+                            <h4 className="labelInput">Add Link</h4>
                             {this.state.error ? <div className="alert alert-danger">{this.state.error}</div> : undefined }
                             <input
                                 onChange={this.onChange.bind(this)}
@@ -59,10 +61,9 @@ export default class AddLink extends Component {
                                 value={this.state.url}
                             />
                         </div>
-                        <button className="btn btn-primary">Add Link</button>
+                        <button className="btn btn-primary button-addlinks">Add Link</button>
+                        <button className="btn btn-default button-addlinks" onClick={this.onHandelModalClose.bind(this)}>Cancel</button>
                     </form>
-                    <button className="btn btn-warning" onClick={this.onHandelModalClose.bind(this)}>Cancel
-                    </button>
                 </Modal>
             </div>
         )

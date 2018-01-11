@@ -26,11 +26,11 @@ export default class LinksListFilter extends Component {
     render() {
         return (
             <div>
-                <label>
-                    <input type="checkbox" checked={!this.state.showVisible} onChange={(e) => {
+                <label className="linksfilter checkbox-inline">
+                    <input className="checkbox" type="checkbox" checked={!this.state.showVisible} onChange={(e) => {
                         Session.set('showVisible', !e.target.checked)
                     }}/>
-                    Show hidden links
+                    Show Hidden Links
                 </label>
             </div>
         )

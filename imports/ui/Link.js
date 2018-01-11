@@ -15,11 +15,13 @@ export default class Link extends Component {
 
     render(){
         return(
-            <div className="container">
-                <PrivateHeader title='Your Dashboard'/>
-                <LinksListFilter/>
-                <AddLink/>
-                <LinksList/>
+            <div>
+                <PrivateHeader title='Dashboard'/>
+                <div className="page_content">
+                    <LinksListFilter/>
+                    <AddLink/>
+                    <LinksList/>
+                </div>
             </div>
          )
     }

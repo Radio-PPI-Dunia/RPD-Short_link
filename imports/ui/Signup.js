@@ -39,31 +39,33 @@ class Signup extends Component {
 
     render() {
         return (
-            <div className="container">
-                <h1>Sign Up</h1>
+            <div className="container boxed-view">
+                <div className="boxed-view__box">
+                    <h2>Register</h2>
 
-                { this.state.error ?
-                    <div className="alert alert-danger" role="alert">{this.state.error}</div> : undefined}
+                    { this.state.error ?
+                        <div className="alert alert-danger" role="alert">{this.state.error}</div> : undefined}
 
-                <form onSubmit={this.onSubmit.bind(this)} noValidate>
-                    <div className="form-group">
-                        <label>Fullname:</label>
-                        <input ref="fullname" type="text" name="name" placeholder="Fullname" className="form-control"/>
-                    </div>
-                    <div className="form-group">
-                        <label>Email:</label>
-                        <input ref="email" type="email" name="email" placeholder="Email" className="form-control"/>
-                    </div>
+                    <form className="boxed-view__form" onSubmit={this.onSubmit.bind(this)} noValidate>
+                        <div className="form-group">
+                            <label className="labelInput">Fullname:</label>
+                            <input ref="fullname" type="text" name="name" placeholder="Fullname" className="form-control"/>
+                        </div>
+                        <div className="form-group">
+                            <label className="labelInput">Email:</label>
+                            <input ref="email" type="email" name="email" placeholder="Email" className="form-control"/>
+                        </div>
 
-                    <div className="form-group">
-                        <label>Password:</label>
-                        <input ref="password" type="password" name="password" placeholder="Password"
-                               className="form-control"/>
-                    </div>
-                    <button className="btn btn-primary">Create Account</button>
-                </form>
-                <hr/>
-                Already have an account? <Link to="/">Login Now</Link>
+                        <div className="form-group">
+                            <label className="labelInput">Password:</label>
+                            <input ref="password" type="password" name="password" placeholder="Password"
+                                   className="form-control"/>
+                        </div>
+                        <button className="btn btn-primary">Create Account</button>
+                    </form>
+                    <hr/>
+                    Already have an account? <Link to="/">Login</Link> now
+                </div>
             </div>
         )
     }

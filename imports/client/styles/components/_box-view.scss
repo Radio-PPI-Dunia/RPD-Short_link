@@ -1,0 +1,31 @@
+.boxed-view {
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, #3A1C71, #D76D77 , #FFAF7B);
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.boxes-view--modal{
+  background: fade_out($box-view-overlay-bg, .3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.boxed-view__box {
+  background-color: $box-view-bg;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 30px #606060;
+  text-align: center;
+  width: 35rem;
+}
+
+.boxed-view__form{
+  display: flex;
+  flex-direction: column;
+}
