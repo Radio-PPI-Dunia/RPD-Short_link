@@ -53,11 +53,11 @@ export default class LinkListItem extends Component {
         return (
             <div className="item">
                 <div className="ctn-item">
-                    <h3>{this.props.url}</h3>
+                    <h3>Short URL: {this.props.shortUrl}</h3>
                     <a onClick={this.onDeleteItem.bind(this)} className="delete__item">X</a>
                 </div>
-                <p className="item__message">Short URL: {this.props.shortUrl}</p>
-                {this.renderStats()}
+                <p className="small item__message">Link Source: {this.props.url}</p>
+                <p className="small">{this.renderStats()}</p>
                 <a className="btn btn-default button-linkslist" href={this.props.shortUrl} target="_blank">Visit</a>
                 <button className="btn btn-primary button-linkslist" ref="copy" data-clipboard-text={this.props.shortUrl}>{this.state.justCopied ? 'Copied' : 'Copy' }</button>
                 <button className="btn btn-danger button-linkslist" onClick={() => {

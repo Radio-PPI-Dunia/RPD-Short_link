@@ -4,6 +4,7 @@ import PrivateHeader from '../ui/PrivateHeader';
 import AddLink from '../ui/AddLink';
 import LinksList from '../ui/LinksList';
 import LinksListFilter from '../ui/LinksListFilter';
+import Footer from '../ui/Footer';
 
 export default class Link extends Component {
 
@@ -21,6 +22,7 @@ export default class Link extends Component {
                     <LinksListFilter/>
                     <AddLink/>
                     <LinksList/>
+                    <Footer />
                 </div>
             </div>
          )
