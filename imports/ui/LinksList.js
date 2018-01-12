@@ -48,7 +48,7 @@ export default class LinksList extends Component {
     render() {
         return (
             <div>
-                <h2>Link List</h2>
+                <h2>Links List</h2>
                 <FlipMove maintainContainerHeight={true} typeName="ul">
                     {this.renderLinksListItems()}
                 </FlipMove>

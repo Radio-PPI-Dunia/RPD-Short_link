@@ -46,7 +46,7 @@ class Login extends Component {
                             <input ref="email" type="email" name="email" className="form-control" placeholder="irham.ganteng@example.com"/>
                         </div>
                         <div className="form-group">
-                            <label className="labelInput">Password</label>
+                            <label className="labelInput">Password:</label>
                             <input ref="password" type="password" className="form-control" placeholder="Password"/>
                         </div>
                         <button className="btn btn-primary">Login</button>

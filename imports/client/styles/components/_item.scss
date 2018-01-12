@@ -13,3 +13,16 @@
 .item__status-message {
   text-align: center;
 }
+
+.ctn-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete__item {
+  color: #ddd;
+}
+.delete__item:hover{
+  text-decoration: none;
+  color: #777;
+}

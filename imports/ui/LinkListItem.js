@@ -44,11 +44,19 @@ export default class LinkListItem extends Component {
         return <p className="item__message">{this.props.visitedCount} {visitMesage} {visitedMessage}</p>
     }
 
+    onDeleteItem(e){
+        e.preventDefault();
+        Meteor.call('links.remove', this.props._id);
+    }
+
     render() {
         return (
             <div className="item">
-                <h3>{this.props.url}</h3>
-                <p className="item__message">{this.props.shortUrl}</p>
+                <div className="ctn-item">
+                    <h3>{this.props.url}</h3>
+                    <a onClick={this.onDeleteItem.bind(this)} className="delete__item">X</a>
+                </div>
+                <p className="item__message">Short URL: {this.props.shortUrl}</p>
                 {this.renderStats()}
                 <a className="btn btn-default button-linkslist" href={this.props.shortUrl} target="_blank">Visit</a>
                 <button className="btn btn-primary button-linkslist" ref="copy" data-clipboard-text={this.props.shortUrl}>{this.state.justCopied ? 'Copied' : 'Copy' }</button>

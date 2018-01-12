@@ -41,6 +41,7 @@ export default class AddLink extends Component {
             <div>
                 <button className="btn btn-default" onClick={() => this.setState({isOpen: true})}>+ Add Link</button>
                 <Modal
+                    ariaHideApp={false}
                     isOpen={this.state.isOpen}
                     contentLabel="Add Link"
                     onAfterOpen={() => this.refs.url.focus()}

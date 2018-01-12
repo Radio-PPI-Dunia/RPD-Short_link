@@ -41,7 +41,7 @@ class Signup extends Component {
         return (
             <div className="container boxed-view">
                 <div className="boxed-view__box">
-                    <h2>Register</h2>
+                    <h3>Register</h3>
 
                     { this.state.error ?
                         <div className="alert alert-danger" role="alert">{this.state.error}</div> : undefined}
