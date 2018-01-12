@@ -63,7 +63,7 @@ export default class LinkListItem extends Component {
                 <button className="btn btn-danger button-linkslist" onClick={() => {
                     Meteor.call('links.setVisible', this.props._id, !this.props.visible)
                 }}>
-                    {this.props.visible ? 'Hide' : 'Unhide'}
+                    {this.props.visible ? 'Save' : 'Send Back'}
                 </button>
             </div>
         )

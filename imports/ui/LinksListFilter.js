@@ -30,7 +30,7 @@ export default class LinksListFilter extends Component {
                     <input className="checkbox" type="checkbox" checked={!this.state.showVisible} onChange={(e) => {
                         Session.set('showVisible', !e.target.checked)
                     }}/>
-                    Show Hidden Links
+                    Show Saved Links
                 </label>
             </div>
         )
