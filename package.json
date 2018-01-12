@@ -19,5 +19,8 @@
     "react-router-dom": "^4.2.2",
     "shortid": "^2.2.6",
     "simpl-schema": "0.0.3"
+  },
+  "engines": {
+    "node": "8.9.3"
   }
 }
